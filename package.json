@@ -19,6 +19,10 @@
       {
         "command": "frcvis.hello",
         "title": "Hello World"
+      },
+      {
+        "command": "frcvis.helloJava",
+        "title": "Hello World"
       }
     ]
   },

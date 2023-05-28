@@ -12,7 +12,7 @@ public class CommandHandler implements IDelegateCommandHandler {
     public Object executeCommand(String commandId, List<Object> arguments, IProgressMonitor monitor) throws Exception {
         if (!commandId.equals("")) {
             switch (commandId) {
-            case "frcvis.hello":
+            case "frcvis.helloJava":
             	FileWriter out = null;
             	try {
             		out = new FileWriter("output.txt");
@@ -23,7 +23,7 @@ public class CommandHandler implements IDelegateCommandHandler {
             		}
             	}
             	break;
-            	default:
+        	default:
             		break;
             }
         }

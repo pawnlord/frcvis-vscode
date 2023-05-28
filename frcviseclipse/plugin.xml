@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.jdt.ls.core.delegateCommandHandler">
         <delegateCommandHandler class="frcviseclipse.CommandHandler">
-            <command id="frcvis.hello"/>
+            <command id="frcvis.helloJava"/>
         </delegateCommandHandler>
    </extension>
 

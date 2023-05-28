@@ -2,10 +2,27 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
+
+
+export async function getExtensionApi(): Promise<any> {
+    const extension: vscode.Extension<any> | undefined = vscode.extensions.getExtension("redhat.java");
+    if (extension === undefined) {
+        throw new Error("Language Support for Java(TM) by Red Hat isn't running, the export process will be aborted.");
+    }
+    const extensionApi: any = await extension.activate();
+    if (extensionApi.getClasspaths === undefined) {
+        throw new Error("Export jar is not supported in the current version of language server, please check and update your Language Support for Java(TM) by Red Hat.");
+    }
+    return extensionApi;
+}
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
+	
 
+	let api = await getExtensionApi();
+	
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "frcvis" is now active!');
@@ -17,6 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from frcvis!');
+		vscode.commands.executeCommand("java.execute.workspaceCommand", "frcvis.helloJava");
 	});
 
 	context.subscriptions.push(disposable);
