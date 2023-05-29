@@ -13,7 +13,7 @@
   "main": "./out/extension.js",
   "contributes": {
     "javaExtensions": [
-      "./server/frcviseclipse.jar"
+      "./server/frceclipse.jar"
     ],
     "commands": [
       {
