@@ -12,7 +12,7 @@ public class CommandHandler implements IDelegateCommandHandler {
         switch (commandId) {
             case "frcvis.helloJava":
                 System.out.println("Hello from Java!!!!!");
-                break;
+                throw new UnsupportedOperationException(String.format("Hello"));
             default:
                 break;
         }
