@@ -3,18 +3,23 @@ package frcviseclipse.core;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-class Activator implements BundleActivator {
+public class JdtlsExtActivator implements BundleActivator {
 
     private static BundleContext context;
+    
+    public JdtlsExtActivator () {
+
+    }
 
     @Override
     public void start(BundleContext bundleContext) throws Exception {
-        Activator.context = bundleContext;
+        JdtlsExtActivator.context = bundleContext;
+        System.out.println("Activated!1!11!11!!!!");
     }
 
     @Override
     public void stop(BundleContext bundleContext) throws Exception {
-        Activator.context = null;
+        JdtlsExtActivator.context = null;
     }
 
 
