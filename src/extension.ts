@@ -37,6 +37,10 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.commands.executeCommand("java.execute.workspaceCommand", "frcvis.helloJava");
 	});
 
+	disposable = vscode.commands.registerCommand('frcvis.log', (arg: string) => {
+		console.log(arg);
+	});
+
 	context.subscriptions.push(disposable);
 
 }
