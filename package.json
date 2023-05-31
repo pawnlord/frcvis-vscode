@@ -25,8 +25,8 @@
         "title": "Hello World"
       },
       {
-        "command": "frcvis.log",
-        "title": "Log"
+        "command": "frcvis.displayCommand",
+        "title": "Display Current Command Tree"
       }
     ]
   },

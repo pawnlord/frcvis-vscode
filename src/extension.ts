@@ -16,6 +16,11 @@ export async function getExtensionApi(): Promise<any> {
     return extensionApi;
 }
 
+
+function registerCommand(ctx: vscode.ExtensionContext, name: string, cb: (...args: any[]) => any){
+	ctx.subscriptions.push(vscode.commands.registerCommand(name, cb));
+}
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
@@ -30,19 +35,19 @@ export async function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('frcvis.hello', () => {
+	registerCommand(context, 'frcvis.hello', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from frcvis!');
 		vscode.commands.executeCommand("java.execute.workspaceCommand", "frcvis.helloJava");
 	});
 
-	disposable = vscode.commands.registerCommand('frcvis.log', (arg: string) => {
+	registerCommand(context, 'frcvis.log', (arg: string) => {
 		console.log(arg);
 	});
-
-	context.subscriptions.push(disposable);
-
+	registerCommand(context, 'frcvis.error', (arg: string) => {
+		console.error(arg);
+	});
 }
 // This method is called when your extension is deactivated
 export function deactivate() {}
