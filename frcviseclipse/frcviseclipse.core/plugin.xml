@@ -4,6 +4,7 @@
 <extension point="org.eclipse.jdt.ls.core.delegateCommandHandler">
         <delegateCommandHandler class="frcviseclipse.core.CommandHandler">
             <command id="frcvis.helloJava"/>
+            <command id="frcvis.displayTreeJava"/>
         </delegateCommandHandler>
     </extension>
 </plugin>

@@ -21,6 +21,13 @@ function registerCommand(ctx: vscode.ExtensionContext, name: string, cb: (...arg
 	ctx.subscriptions.push(vscode.commands.registerCommand(name, cb));
 }
 
+function commandDisplayTree(){
+	let editor = vscode.window.activeTextEditor;
+	let uri = editor?.document.uri.toString;
+	let line = editor?.selection.active.line;
+	let character = editor?.selection.active.character;
+	vscode.commands.executeCommand("java.execute.workspaceCommand", "frcvis.displayTreeJava", uri, line, character);	
+}
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
@@ -48,6 +55,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	registerCommand(context, 'frcvis.error', (arg: string) => {
 		console.error(arg);
 	});
+	registerCommand(context, 'frcvis.displayCommand', commandDisplayTree);
 }
 // This method is called when your extension is deactivated
 export function deactivate() {}
