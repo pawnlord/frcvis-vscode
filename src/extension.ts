@@ -23,10 +23,9 @@ function registerCommand(ctx: vscode.ExtensionContext, name: string, cb: (...arg
 
 function commandDisplayTree(){
 	let editor = vscode.window.activeTextEditor;
-	let uri = editor?.document.uri.toString;
-	let line = editor?.selection.active.line;
-	let character = editor?.selection.active.character;
-	vscode.commands.executeCommand("java.execute.workspaceCommand", "frcvis.displayTreeJava", uri, line, character);	
+	let uri = editor?.document.uri.toString();
+	let offset = editor?.document.offsetAt(editor?.selection.active);
+	vscode.commands.executeCommand("java.execute.workspaceCommand", "frcvis.displayTreeJava", uri, offset);	
 }
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed

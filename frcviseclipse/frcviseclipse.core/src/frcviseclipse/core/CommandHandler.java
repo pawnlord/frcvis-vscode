@@ -17,7 +17,7 @@ public class CommandHandler implements IDelegateCommandHandler {
                 Logger.errorOnVSCode("This is an error on VSCode");
             return null;
             case "frcvis.displayTreeJava":
-                PackageCommands.displayTree(arguments);
+                PackageCommands.displayTree(arguments, monitor);
             return null;
             default:
                 break;
