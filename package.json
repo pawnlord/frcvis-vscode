@@ -4,7 +4,7 @@
   "description": "Visualizer for Command-Based Structure in FRC",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.78.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
@@ -18,15 +18,15 @@
     "commands": [
       {
         "command": "frcvis.hello",
-        "title": "Hello World"
+        "title": "frcvis: Hello World"
       },
       {
         "command": "frcvis.helloJava",
-        "title": "Hello World"
+        "title": "frcvis java: Hello World"
       },
       {
         "command": "frcvis.displayCommand",
-        "title": "Display Current Command Tree"
+        "title": "frcvis java: Display Current Command Tree"
       }
     ]
   },

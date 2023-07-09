@@ -1,6 +1,6 @@
 # frcvis README
 
-A plugin for VS Code to easily visualize FRC Command-Based command structures.  
+A plugin for VS Code to easily visualize FRC Command-Based command structures in Java.  
 There is simultaneous work being done on an IntelliJ plug-in by [@brennenputh](https://www.github.com/brennenputh), check it out at https://github.com/brennenputh/FRCVis-IntelliJ 
 
 
