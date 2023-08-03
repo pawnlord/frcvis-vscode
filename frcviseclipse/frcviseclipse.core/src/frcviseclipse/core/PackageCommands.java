@@ -10,6 +10,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.NodeFinder;
 
+import frcviseclipse.core.CommandModel.CommandNode;
 import frcviseclipse.core.util.Logger;
 import org.eclipse.jdt.ls.core.internal.JDTUtils;
 import org.eclipse.jdt.ls.core.internal.handlers.CodeActionHandler;
@@ -40,11 +41,16 @@ public class PackageCommands {
         ASTNode rootNode = finder.getCoveringNode().getRoot();
         CommandModel model = new CommandModel();
 
+        CommandNode commandRoot = null;
         while(node != rootNode && node.getNodeType() != ASTNode.METHOD_DECLARATION){
-            model.tryAddCommand(node);
+            CommandNode possibleRoot = model.tryAddCommand(node);
+            if(possibleRoot != null){
+                commandRoot = possibleRoot;
+            }
             node = node.getParent();
         }
 
+        model.setRootNode(commandRoot);
         Logger.logOnVSCode(model.serialize());
 
     }

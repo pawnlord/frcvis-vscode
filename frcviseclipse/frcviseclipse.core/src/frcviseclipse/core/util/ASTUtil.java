@@ -15,7 +15,6 @@ public class ASTUtil {
             return true;
         }
         for(ITypeBinding _interface: binding.getInterfaces()){
-            Logger.logOnVSCode(binding.getSuperclass().getQualifiedName());
 
             if(_interface.getQualifiedName().equals(superclassName)){
                 return true;

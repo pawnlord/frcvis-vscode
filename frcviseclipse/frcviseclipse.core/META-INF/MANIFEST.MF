@@ -4,7 +4,7 @@ Bundle-Name: FRC Vis Core
 Bundle-SymbolicName: frcviseclipse.core;singleton:=true
 Bundle-Version: 0.0.1
 Bundle-Activator: frcviseclipse.core.JdtlsExtActivator
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
